@@ -2,26 +2,24 @@
 
 {% block content %}
     <h4 class="center-align red lighten-3">{{ title }}</h4>
-    <table class="table">
-        <thead>
-            <tr>
-                <td class="">Id</td>
-                <td class="">Nome</td>
-                <td class="">Usuario</td>
-                <td class="">Senha</td>
-            </tr>
-        </thead>
     {% if data %}
-        <tbody>
+        <div class="row col s12 m12">
             {% for d in data %}
-                <tr>
-                    <td>{{ d.id }}</td>
-                    <td>{{ d.nome }}</td>
-                    <td>{{ d.usuario }}</td>
-                    <td>{{ d.senha }}</td>
-                </tr>
+                <div class="row">
+                    <div class="col s12 m4">
+                        <div class="card blue">
+                            <div class="card-content white-text">
+                                <span class="card-title">{{ d.nome }}</span>
+                                <p>Este é o usuário número {{ d.id }} da nossa lista e a sua senha é {{ d.senha }}</p>
+                            </div>
+                            <div class="card-action">
+                                <a class="white-text" href="#!">{{ d.nome }}.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
-        </tbody>
+        </div>
     {% endif %}
-    </table>
+
 {% endblock %}

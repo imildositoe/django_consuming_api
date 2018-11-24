@@ -4,18 +4,30 @@
     <meta charset="UTF-8">
     <title>Layout daw api</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <header class="container center-align">
-        <h2 class="title">Consumindo da API</h2>
-    </header>
-
-    <div class="container">
-        {% block content %}
-        {% endblock %}
-        <br>
-        <a style="display: block" class="center-align" href="/admin">Admin Login</a>
+<nav class="col s12">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">API-USERS</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Perfil</a></li>
+            <li><a href="#">Sair</a></li>
+        </ul>
     </div>
+</nav>
+
+<header class="container center-align">
+    <h4 class="title">Consumindo da API</h4>
+</header>
+<br>
+<br>
+<div class="container">
+    {% block content %}
+    {% endblock %}
+    <br>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
