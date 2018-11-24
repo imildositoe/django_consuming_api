@@ -1,0 +1,27 @@
+{% extends 'posts/layout.html' %}
+
+{% block content %}
+    <h4 class="center-align red lighten-3">{{ title }}</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <td class="">Id</td>
+                <td class="">Nome</td>
+                <td class="">Usuario</td>
+                <td class="">Senha</td>
+            </tr>
+        </thead>
+    {% if data %}
+        <tbody>
+            {% for d in data %}
+                <tr>
+                    <td>{{ d.id }}</td>
+                    <td>{{ d.nome }}</td>
+                    <td>{{ d.usuario }}</td>
+                    <td>{{ d.senha }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    {% endif %}
+    </table>
+{% endblock %}

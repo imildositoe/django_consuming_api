@@ -1,0 +1,16 @@
+{% extends 'posts/layout.html' %}
+
+{% block content %}
+    <form action="/login/" method="post">
+        {% csrf_token %}
+        <label>
+            Usuario
+            <input type="text" name="username">
+        </label><br>
+        <label>
+            Senha
+            <input type="text" name="password">
+        </label><br>
+        <input type="submit" value="Entrar">
+    </form>
+{% endblock %}
