@@ -1,24 +1,26 @@
 {% extends 'posts/layout.html' %}
 
 {% block content %}
-    <h5 class="subheader">Login na API</h5>
-    <div class="col m3 s3 ">
+    <div class="container center-align">
+        <h4 class="title">Login na API</h4>
+    </div><br><br>
+    <div class="">
         <form class="form col m6" action="/login/" method="post">
             {% csrf_token %}
 
-            <div class="input-field col m6 s3">
+            <div class="input-field" style="width: 50%; margin-left: 24%">
                 <i class="material-icons prefix">insert_emoticon</i>
                 <input id="username" name="username" type="text" class="validate">
                 <label for="username">Usuario</label>
             </div>
 
-            <div class="input-field col m6 s6">
+            <div class="input-field" style="width: 50%; margin-left: 24%">
                 <i class="material-icons prefix">no_encryption</i>
                 <input id="password" name="password" type="password" class="validate">
-                <label for="password">Senha</label>
+                <label for="password" style="width: 50%">Senha</label>
             </div>
 
-            <input class="btn" type="submit" value="Entrar">
+            <input class="btn" type="submit" value="Entrar" style="margin-left: 24%">
         </form>
     </div>
 {% endblock %}

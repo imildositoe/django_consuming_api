@@ -1,25 +1,48 @@
 {% extends 'posts/layout.html' %}
 
 {% block content %}
-    <h4 class="center-align red lighten-3">{{ title }}</h4>
-    {% if data %}
-        <div class="row col s12 m12">
-            {% for d in data %}
+    <div class="" style="margin-left: 32%">
+        <h4 class="title">Lista de Usuarios</h4>
+    </div><br><br>
+    <div class="row">
+        <div class="col s9" style="">
+            {% if data %}
                 <div class="row">
-                    <div class="col s12 m4">
-                        <div class="card blue">
-                            <div class="card-content white-text">
-                                <span class="card-title">{{ d.nome }}</span>
-                                <p>Este é o usuário número {{ d.id }} da nossa lista e a sua senha é {{ d.senha }}</p>
-                            </div>
-                            <div class="card-action">
-                                <a class="white-text" href="#!">{{ d.nome }}.com</a>
+                    {% for d in data %}
+                        <div class="col s4 m4">
+                            <div class="card blue">
+                                <div class="card-content white-text">
+                                    <span class="card-title">{{ d.nome }}</span>
+                                    <p>Este é o usuário número {{ d.id }} da nossa lista e a sua senha
+                                        é {{ d.senha }}</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="white-text" href="#!">{{ d.nome }}.com</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
-            {% endfor %}
+            {% endif %}
         </div>
-    {% endif %}
 
+        <div class="col s3">
+            <form action="/get_user/" method="post">
+                {% csrf_token %}
+                <div class="input-field col s12">
+                    <input placeholder="Introduza o número" id="id_user" name="id_user" type="number" class="validate">
+                    <label for="id_user">Buscar Um Utilizador</label>
+                </div>
+                <div class="input-field col s12">
+                    <input placeholder="Aguardando pesquisa" value="{{ data.nome }}" id="result" name="result" disabled type="text" class="validate">
+                    <label for="result">Resultado</label>
+                </div>
+                <div class="input-field col s2">
+                    <button class="btn waves-effect waves-light" type="submit">
+                        Buscar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}
